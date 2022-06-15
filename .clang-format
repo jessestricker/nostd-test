@@ -8,3 +8,4 @@ FixNamespaceComments: false
 
 DerivePointerAlignment: false
 AccessModifierOffset: -2
+AllowShortFunctionsOnASingleLine: None
