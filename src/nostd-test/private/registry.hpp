@@ -1,10 +1,11 @@
-#ifndef NOSTD_TEST_REGISTRY_HPP
-#define NOSTD_TEST_REGISTRY_HPP
+#ifndef NOSTD_TEST_PRIVATE_REGISTRY_HPP
+#define NOSTD_TEST_PRIVATE_REGISTRY_HPP
 
 #include <array>
 #include <cstddef>
-#include <nostd-test/registry-entry.hpp>
 #include <span>
+
+#include "../registry-entry.hpp"
 
 namespace nostd_test {
   /// A test case registry contains an array of test case registrations with a
@@ -36,4 +37,4 @@ namespace nostd_test {
   };
 }
 
-#endif  // NOSTD_TEST_REGISTRY_HPP
+#endif  // NOSTD_TEST_PRIVATE_REGISTRY_HPP
