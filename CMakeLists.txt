@@ -5,7 +5,8 @@ project(
   VERSION 0.1.0
   LANGUAGES CXX)
 
-add_library(nostd-test STATIC src/nostd-test/nostd-test.cpp)
+add_library(nostd-test STATIC src/nostd-test/registry-entry.cpp
+                              src/nostd-test/registry.cpp)
 
 target_include_directories(nostd-test PUBLIC include)
 target_compile_features(nostd-test PUBLIC cxx_std_20)
