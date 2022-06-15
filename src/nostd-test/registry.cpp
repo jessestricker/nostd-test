@@ -9,7 +9,7 @@ namespace nostd_test {
     return global_registry;
   }
 
-  void Registry::add_entry(const RegistryEntry& entry) noexcept {
+  void Registry::append(const RegistryEntry& entry) noexcept {
     if (entries_len_ >= entries_cap_) {
       too_many_entries_ = true;
       return;

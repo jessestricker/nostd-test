@@ -20,6 +20,7 @@
           cmake
           ninja
           gdb
+          doxygen
 
           # Formatting
           fd

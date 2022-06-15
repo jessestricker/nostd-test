@@ -4,7 +4,7 @@
 
 namespace nostd_test {
   Empty RegistryEntry::add_to_global_registry() const noexcept {
-    Registry::global().add_entry(*this);
+    Registry::global().append(*this);
     return {};
   }
 }

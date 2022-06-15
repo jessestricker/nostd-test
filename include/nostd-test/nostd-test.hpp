@@ -3,6 +3,14 @@
 
 #include <nostd-test/registry-entry.hpp>
 
+/// The root namespace of the *nostd-test* framework.
+namespace nostd_test {}
+
+/// Define a test case with a given name.
+///
+/// This macro may only be used directly in the global namespace,
+/// as it injects global variable declarations in an anonymous namespace as part
+/// of the automatic test case registration mechanism.
 #define TEST_CASE(Name)                                     \
   void nostd_test_case_func_##Name();                       \
   namespace {                                               \

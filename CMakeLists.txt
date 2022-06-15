@@ -13,4 +13,10 @@ target_compile_features(nostd-test PUBLIC cxx_std_20)
 
 if(${PROJECT_IS_TOP_LEVEL})
   add_subdirectory(example)
+
+  find_package(Doxygen)
+  set(DOXYGEN_QUIET YES)
+  set(DOXYGEN_EXTRACT_ALL YES)
+  set(DOXYGEN_JAVADOC_AUTOBRIEF YES)
+  doxygen_add_docs(docs include src)
 endif()
