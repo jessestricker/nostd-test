@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "suite.hpp"
+
 namespace nostd_test {
   Runner::Runner(const Registry& registry) noexcept : registry_{registry} {
   }
@@ -13,11 +15,19 @@ namespace nostd_test {
       return 1;
     }
 
-    std::clog << "# Registry Entries:\n";
+    std::clog << "# Test Report:\n";
     std::clog << "\n";
-    for (const auto& entry : registry_.entries()) {
-      std::clog << "- `" << entry.source.file << ":" << entry.source.line
-                << "`: " << entry.case_name << "\n";
+
+    const auto suites = suites_from_registry(registry_);
+    for (const auto& suite : suites) {
+      std::clog << "## Suite: `" << suite.file_name << "`\n";
+      std::clog << "\n";
+
+      for (const auto& case_ : suite.cases) {
+        std::clog << "### Case: `" << case_.name << "`\n";
+      }
+
+      std::clog << "\n";
     }
     return 0;
   }
