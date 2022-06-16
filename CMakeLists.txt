@@ -7,8 +7,10 @@ project(
 
 add_library(
   nostd-test STATIC
-  src/nostd-test/registry-entry.cpp src/nostd-test/private/registry.cpp
-  src/nostd-test/private/runner.cpp src/nostd-test/private/main.cpp)
+  src/nostd-test/private/main.cpp
+  src/nostd-test/private/registry.cpp
+  src/nostd-test/private/runner.cpp
+  src/nostd-test/registry-entry.cpp)
 
 target_include_directories(nostd-test PUBLIC src)
 target_compile_features(nostd-test PUBLIC cxx_std_20)

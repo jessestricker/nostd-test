@@ -1,1 +1,6 @@
-{}
+{
+  "format": {
+    "max_pargs_hwrap": 2,
+    "autosort": true
+  }
+}
