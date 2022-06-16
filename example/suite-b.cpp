@@ -2,5 +2,7 @@
 
 TEST_CASE(boo) {
 }
+
 TEST_CASE(far) {
+  ASSERT_THAT(false);
 }

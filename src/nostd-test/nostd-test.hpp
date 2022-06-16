@@ -4,7 +4,19 @@
 #include <nostd-test/registry-entry.hpp>
 
 /// The root namespace of the *nostd-test* framework.
-namespace nostd_test {}
+namespace nostd_test {
+  [[noreturn]] void fail_assertion(const char* condition,
+                                   const SourceLocation& source) noexcept;
+
+  template <class ExprLambda>
+  void check_assertion(ExprLambda expr_lambda, const char* condition,
+                       const SourceLocation& source) noexcept {
+    if (expr_lambda()) [[likely]] {
+      return;
+    }
+    fail_assertion(condition, source);
+  }
+}
 
 /// Define a test case with a given name.
 ///
@@ -23,6 +35,8 @@ namespace nostd_test {}
   }                                                         \
   void nostd_test_case_func_##Name()
 
-#define ASSERT(Cond)
+#define ASSERT_THAT(Cond)                                                \
+  ::nostd_test::check_assertion([&]() -> bool { return (Cond); }, #Cond, \
+                                {.file = __FILE__, .line = __LINE__})
 
 #endif  // NOSTD_TEST_NOSTD_TEST_HPP

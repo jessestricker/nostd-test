@@ -7,6 +7,7 @@ project(
 
 add_library(
   nostd-test STATIC
+  src/nostd-test/nostd-test.cpp
   src/nostd-test/private/main.cpp
   src/nostd-test/private/registry.cpp
   src/nostd-test/private/runner.cpp
