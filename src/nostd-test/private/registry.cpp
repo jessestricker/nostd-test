@@ -10,7 +10,7 @@ namespace nostd_test {
   }
 
   void Registry::append(const RegistryEntry& entry) noexcept {
-    if (entries_len_ >= entries_cap_) {
+    if (entries_len_ >= capacity) {
       too_many_entries_ = true;
       return;
     }

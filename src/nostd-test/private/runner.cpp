@@ -11,7 +11,9 @@ namespace nostd_test {
   int Runner::operator()() const noexcept {
     if (registry_.too_many_entries()) {
       std::clog << "# Error\n";
-      std::clog << "> Too many test cases were tried to be registered!\n";
+      std::clog << "> Too many test cases were registered!\n";
+      std::clog << "> The capacity of registry entries is "
+                << Registry::capacity << ".\n";
       return 1;
     }
 

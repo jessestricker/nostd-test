@@ -13,6 +13,9 @@ namespace nostd_test {
   /// registry, to allow for registering test cases without exceptions.
   class Registry {
   public:
+    /// The capacity of the pre-allocated array of registry entries.
+    static constexpr std::size_t capacity{1024};
+
     /// Returns a reference to the single global registry instance.
     static Registry& global() noexcept;
 
@@ -30,8 +33,7 @@ namespace nostd_test {
     [[nodiscard]] bool too_many_entries() const noexcept;
 
   private:
-    static constexpr std::size_t entries_cap_{1024};
-    std::array<RegistryEntry, entries_cap_> entries_{};
+    std::array<RegistryEntry, capacity> entries_{};
     std::size_t entries_len_{};
     bool too_many_entries_{};
   };
