@@ -1,0 +1,19 @@
+name: Style
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  format:
+    name: Check Format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Nix
+        uses: cachix/install-nix-action@v17
+      - name: Format Code
+        run: nix develop -i -c bash format.sh
+      - name: Check Changes
+        run: git diff --exit-code
