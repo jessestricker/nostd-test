@@ -9,16 +9,14 @@ namespace nostd_test {
     for (const auto& entry : registry.entries()) {
       const auto case_ = Case{.name = entry.case_name, .func = entry.case_func};
 
-      auto suite_it =
-          std::find_if(suites.begin(), suites.end(), [&](const auto& suite) {
-            return suite.file_name == entry.source.file;
-          });
+      auto suite_it = std::find_if(suites.begin(), suites.end(), [&](const auto& suite) {
+        return suite.file_name == entry.source.file;
+      });
 
       if (suite_it != suites.end()) {
         suite_it->cases.push_back(case_);
       } else {
-        suites.push_back(
-            Suite{.file_name = entry.source.file, .cases = {case_}});
+        suites.push_back(Suite{.file_name = entry.source.file, .cases = {case_}});
       }
     }
 

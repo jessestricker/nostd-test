@@ -16,8 +16,7 @@ namespace nostd_test {
     if (registry_.too_many_entries()) {
       out << "# Error\n";
       out << "> Too many test cases were registered!\n";
-      out << "> The capacity of registry entries is " << Registry::capacity
-          << ".\n";
+      out << "> The capacity of registry entries is " << Registry::capacity << ".\n";
       return 1;
     }
 
@@ -38,8 +37,8 @@ namespace nostd_test {
           suite_report << "\n### Case `" << case_.name << "`\n";
           suite_report << "__Assertion Failure__\\\n";
 
-          suite_report << "__Source:__ `" << failure.source.file << ":"
-                       << failure.source.line << "`\\\n";
+          suite_report << "__Source:__ `" << failure.source.file << ":" << failure.source.line
+                       << "`\\\n";
 
           suite_report << "__Condition:__\n";
           suite_report << "```\n";
@@ -56,8 +55,8 @@ namespace nostd_test {
       const auto cases_total = suite.cases.size();
       const auto cases_success = cases_total - cases_failure;
       out << "## Suite `" << suite.file_name << "`\n\n";
-      out << "__Summary:__ " << cases_success << "/" << cases_total
-          << " cases succeeded, " << cases_failure << " cases failed.\n";
+      out << "__Summary:__ " << cases_success << "/" << cases_total << " cases succeeded, "
+          << cases_failure << " cases failed.\n";
 
       out << suite_report.str() << "\n";
     }

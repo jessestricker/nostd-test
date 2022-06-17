@@ -3,8 +3,9 @@
 
 #include <array>
 #include <cstddef>
-#include <nostd-test/registry-entry.hpp>
 #include <span>
+
+#include <nostd-test/registry-entry.hpp>
 
 namespace nostd_test {
   /// A test case registry contains an array of test case registrations with a
@@ -25,8 +26,7 @@ namespace nostd_test {
     void append(const RegistryEntry& entry) noexcept;
 
     /// Returns a span of the registry entries.
-    [[nodiscard]] auto entries() const noexcept
-        -> std::span<const RegistryEntry>;
+    [[nodiscard]] auto entries() const noexcept -> std::span<const RegistryEntry>;
 
     /// Returns whether the number of registrations exceeded the capacity of
     /// the pre-allocated array.

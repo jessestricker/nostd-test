@@ -3,9 +3,22 @@ BasedOnStyle: Google
 Language: Cpp
 Standard: Latest
 
+ColumnLimit: 100
 NamespaceIndentation: All
 FixNamespaceComments: false
 
 DerivePointerAlignment: false
 AccessModifierOffset: -2
 AllowShortFunctionsOnASingleLine: None
+
+IncludeBlocks: Regroup
+IncludeCategories:
+  # libraries
+  - Regex: '\.h(pp)?>$'
+    Priority: 2
+  # standard
+  - Regex: "^<"
+    Priority: 1
+  # project
+  - Regex: '^"'
+    Priority: 3
