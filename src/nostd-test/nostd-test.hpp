@@ -28,7 +28,7 @@ namespace nostd_test {
     /* Define registry entry for test case. */              \
     const auto registry_entry_##Name =                      \
         ::nostd_test::RegistryEntry{                        \
-            .source = {.file = __FILE__, .line = __LINE__}, \
+            .source = NOSTD_TEST_CURRENT_SOURCE_LOCATION(), \
             .case_name = #Name,                             \
             .case_func = &func_##Name}                      \
             .add_to_global_registry();                      \
@@ -38,6 +38,6 @@ namespace nostd_test {
 
 #define ASSERT_THAT(Cond)                                                \
   ::nostd_test::check_assertion([&]() -> bool { return (Cond); }, #Cond, \
-                                {.file = __FILE__, .line = __LINE__})
+                                NOSTD_TEST_CURRENT_SOURCE_LOCATION())
 
 #endif  // NOSTD_TEST_NOSTD_TEST_HPP
