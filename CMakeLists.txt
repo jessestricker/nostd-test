@@ -8,11 +8,11 @@ project(
 add_library(
   nostd-test STATIC
   src/nostd-test/nostd-test.cpp
+  src/nostd-test/private/assertion-failure.cpp
   src/nostd-test/private/main.cpp
   src/nostd-test/private/registry.cpp
   src/nostd-test/private/runner.cpp
-  src/nostd-test/private/suite.cpp
-  src/nostd-test/registry-entry.cpp)
+  src/nostd-test/private/suite.cpp)
 
 target_include_directories(nostd-test PUBLIC src)
 target_compile_features(nostd-test PUBLIC cxx_std_20)

@@ -3,14 +3,10 @@
 #include <iostream>
 #include <sstream>
 
+#include "assertion-failure.hpp"
 #include "suite.hpp"
 
 namespace nostd_test {
-  AssertionFailure::AssertionFailure(const std::string_view& condition,
-                                     const SourceLocation& source) noexcept
-      : condition{condition}, source{source} {
-  }
-
   Runner::Runner(const Registry& registry) noexcept : registry_{registry} {
   }
 

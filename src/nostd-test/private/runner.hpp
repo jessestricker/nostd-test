@@ -1,20 +1,9 @@
 #ifndef NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_RUNNER_HPP
 #define NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_RUNNER_HPP
 
-#include <exception>
-#include <string_view>
-
 #include "registry.hpp"
 
 namespace nostd_test {
-  struct AssertionFailure : std::exception {
-    std::string_view condition;
-    SourceLocation source;
-
-    AssertionFailure(const std::string_view& condition,
-                     const SourceLocation& source) noexcept;
-  };
-
   /// A runner runs all or a filtered selection of the test cases from a
   /// registry.
   class Runner {

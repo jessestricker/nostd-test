@@ -4,10 +4,6 @@
 #include <nostd-test/source-location.hpp>
 
 namespace nostd_test {
-  /// An empty struct to use in variable declarations where no data needs to be
-  /// stored.
-  struct Empty {};
-
   /// The type of the test case functions.
   /// They have zero parameters and return void.
   using CaseFunction = void();
@@ -22,11 +18,6 @@ namespace nostd_test {
 
     /// A pointer to the test case function.
     CaseFunction* case_func{};
-
-    /// Registers a this instance at the global registry.
-    /// The return value can be used as a global variable to have the
-    /// registration happen as a side-effect.
-    [[nodiscard]] auto add_to_global_registry() const noexcept -> Empty;
   };
 }
 
