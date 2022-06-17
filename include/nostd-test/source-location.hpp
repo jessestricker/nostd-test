@@ -14,6 +14,8 @@ namespace nostd_test {
 
 /// Returns the current source location.
 #define NOSTD_TEST_CURRENT_SOURCE_LOCATION() \
-  ::nostd_test::SourceLocation { .file = __FILE__, .line = __LINE__ }
+  ::nostd_test::SourceLocation {             \
+    .file = __FILE__, .line = __LINE__       \
+  }
 
 #endif  // NOSTD_TEST_INCLUDE_NOSTD_TEST_SOURCE_LOCATION_HPP
