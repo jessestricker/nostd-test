@@ -1,5 +1,5 @@
-#ifndef NOSTD_TEST_SRC_NOSTD_TEST_SOURCE_LOCATION_HPP
-#define NOSTD_TEST_SRC_NOSTD_TEST_SOURCE_LOCATION_HPP
+#ifndef NOSTD_TEST_INCLUDE_NOSTD_TEST_SOURCE_LOCATION_HPP
+#define NOSTD_TEST_INCLUDE_NOSTD_TEST_SOURCE_LOCATION_HPP
 
 namespace nostd_test {
   /// A location in a source file.
@@ -16,4 +16,4 @@ namespace nostd_test {
 #define NOSTD_TEST_CURRENT_SOURCE_LOCATION() \
   ::nostd_test::SourceLocation { .file = __FILE__, .line = __LINE__ }
 
-#endif  // NOSTD_TEST_SRC_NOSTD_TEST_SOURCE_LOCATION_HPP
+#endif  // NOSTD_TEST_INCLUDE_NOSTD_TEST_SOURCE_LOCATION_HPP

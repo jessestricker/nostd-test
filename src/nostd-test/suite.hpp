@@ -1,5 +1,5 @@
-#ifndef NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_SUITE_HPP
-#define NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_SUITE_HPP
+#ifndef NOSTD_TEST_SRC_NOSTD_TEST_SUITE_HPP
+#define NOSTD_TEST_SRC_NOSTD_TEST_SUITE_HPP
 
 #include <string_view>
 #include <vector>
@@ -29,4 +29,4 @@ namespace nostd_test {
   auto suites_from_registry(const Registry& registry) -> std::vector<Suite>;
 }
 
-#endif  // NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_SUITE_HPP
+#endif  // NOSTD_TEST_SRC_NOSTD_TEST_SUITE_HPP

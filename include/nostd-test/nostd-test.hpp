@@ -1,5 +1,5 @@
-#ifndef NOSTD_TEST_SRC_NOSTD_TEST_NOSTD_TEST_HPP
-#define NOSTD_TEST_SRC_NOSTD_TEST_NOSTD_TEST_HPP
+#ifndef NOSTD_TEST_INCLUDE_NOSTD_TEST_NOSTD_TEST_HPP
+#define NOSTD_TEST_INCLUDE_NOSTD_TEST_NOSTD_TEST_HPP
 
 #include <nostd-test/registry-entry.hpp>
 
@@ -45,4 +45,4 @@ namespace nostd_test {
   ::nostd_test::check_assertion([&]() -> bool { return (Cond); }, #Cond, \
                                 NOSTD_TEST_CURRENT_SOURCE_LOCATION())
 
-#endif  // NOSTD_TEST_SRC_NOSTD_TEST_NOSTD_TEST_HPP
+#endif  // NOSTD_TEST_INCLUDE_NOSTD_TEST_NOSTD_TEST_HPP

@@ -1,10 +1,9 @@
-#ifndef NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_ASSERTION_FAILURE_HPP
-#define NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_ASSERTION_FAILURE_HPP
+#ifndef NOSTD_TEST_SRC_NOSTD_TEST_ASSERTION_FAILURE_HPP
+#define NOSTD_TEST_SRC_NOSTD_TEST_ASSERTION_FAILURE_HPP
 
 #include <exception>
+#include <nostd-test/source-location.hpp>
 #include <string_view>
-
-#include "../source-location.hpp"
 
 namespace nostd_test {
   struct AssertionFailure : std::exception {
@@ -16,4 +15,4 @@ namespace nostd_test {
   };
 }
 
-#endif  // NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_ASSERTION_FAILURE_HPP
+#endif  // NOSTD_TEST_SRC_NOSTD_TEST_ASSERTION_FAILURE_HPP

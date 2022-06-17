@@ -7,14 +7,14 @@ project(
 
 add_library(
   nostd-test STATIC
+  src/nostd-test/assertion-failure.cpp
+  src/nostd-test/main.cpp
   src/nostd-test/nostd-test.cpp
-  src/nostd-test/private/assertion-failure.cpp
-  src/nostd-test/private/main.cpp
-  src/nostd-test/private/registry.cpp
-  src/nostd-test/private/runner.cpp
-  src/nostd-test/private/suite.cpp)
+  src/nostd-test/registry.cpp
+  src/nostd-test/runner.cpp
+  src/nostd-test/suite.cpp)
 
-target_include_directories(nostd-test PUBLIC src)
+target_include_directories(nostd-test PUBLIC include)
 target_compile_features(nostd-test PUBLIC cxx_std_20)
 
 if(${PROJECT_IS_TOP_LEVEL})
@@ -24,5 +24,5 @@ if(${PROJECT_IS_TOP_LEVEL})
   set(DOXYGEN_QUIET YES)
   set(DOXYGEN_EXTRACT_ALL YES)
   set(DOXYGEN_JAVADOC_AUTOBRIEF YES)
-  doxygen_add_docs(docs src)
+  doxygen_add_docs(docs include src)
 endif()

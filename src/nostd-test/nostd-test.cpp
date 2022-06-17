@@ -1,7 +1,7 @@
-#include "nostd-test.hpp"
+#include <nostd-test/nostd-test.hpp>
 
-#include "private/assertion-failure.hpp"
-#include "private/registry.hpp"
+#include "assertion-failure.hpp"
+#include "registry.hpp"
 
 namespace nostd_test {
   auto register_test_case(const RegistryEntry& entry) noexcept -> Empty {

@@ -1,6 +1,6 @@
 {
   "format": {
-    "max_pargs_hwrap": 2,
+    "max_pargs_hwrap": 3,
     "autosort": true
   }
 }
