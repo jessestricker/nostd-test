@@ -1,12 +1,12 @@
 #! /usr/bin/env bash
 set -e -u -o pipefail
 
-project_dir=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
+script_file=$(realpath "${BASH_SOURCE[0]}")
+project_dir=$(dirname "$script_file")
 cd "$project_dir"
 
-fd -H -E .git -g CMakeLists.txt -x bash -xc 'cmake-format -i {}'                     # CMake
-fd -H -E .git -e nix -x bash -xc 'alejandra -q {}'                                   # Nix
-fd -H -E .git -e json -e md -e yml -x bash -xc 'prettier -w --loglevel warn {}'      # JSON, Markdown, YAML
-fd -H -E .git -g '.clang-{format,tidy}' -x bash -xc 'prettier -w --loglevel warn {}' # .clang-format, .clang-tidy
-fd -H -E .git -e cpp -e hpp -x bash -xc 'clang-format -i {}'                         # C++
-fd -H -E .git -e sh -x bash -xc 'shfmt -w {}'                                        # Shell
+git ls-files -z 'CMakeLists.txt' | xargs -0 -t -- cmake-format -i
+git ls-files -z '*.nix' | xargs -0 -t -- alejandra -q
+git ls-files -z '*.json' '*.md' '*.yml' '.clang-format' '.clang-tidy' | xargs -0 -t -- prettier -w --loglevel=warn
+git ls-files -z '*.cpp' '*.hpp' | xargs -0 -t -- clang-format -i
+git ls-files -z '*.sh' | xargs -0 -t -- shfmt -w -i=2

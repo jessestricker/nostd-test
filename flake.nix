@@ -25,7 +25,6 @@
           doxygen
 
           # Formatting
-          fd
           alejandra # Nix
           clang-tools # C++
           cmake-format # CMake
