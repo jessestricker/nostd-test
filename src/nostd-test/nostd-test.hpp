@@ -6,11 +6,11 @@
 /// The root namespace of the *nostd-test* framework.
 namespace nostd_test {
   [[noreturn]] void fail_assertion(const char* condition,
-                                   const SourceLocation& source) noexcept;
+                                   const SourceLocation& source);
 
   template <class ExprLambda>
   void check_assertion(ExprLambda expr_lambda, const char* condition,
-                       const SourceLocation& source) noexcept {
+                       const SourceLocation& source) {
     if (expr_lambda()) [[likely]] {
       return;
     }
