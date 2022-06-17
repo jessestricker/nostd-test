@@ -25,6 +25,7 @@
           doxygen
 
           # Formatting
+          git
           alejandra # Nix
           clang-tools # C++
           cmake-format # CMake
