@@ -13,6 +13,8 @@
   }:
     utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
+      llvmPackages = pkgs.llvmPackages_14;
+      clang-tools = pkgs.clang-tools.override {inherit llvmPackages;};
     in {
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [
