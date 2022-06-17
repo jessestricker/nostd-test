@@ -3,7 +3,7 @@
 #include "private/registry.hpp"
 
 namespace nostd_test {
-  Empty RegistryEntry::add_to_global_registry() const noexcept {
+  auto RegistryEntry::add_to_global_registry() const noexcept -> Empty {
     Registry::global().append(*this);
     return {};
   }

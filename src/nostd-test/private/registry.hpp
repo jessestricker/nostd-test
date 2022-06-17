@@ -1,5 +1,5 @@
-#ifndef NOSTD_TEST_PRIVATE_REGISTRY_HPP
-#define NOSTD_TEST_PRIVATE_REGISTRY_HPP
+#ifndef NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_REGISTRY_HPP
+#define NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_REGISTRY_HPP
 
 #include <array>
 #include <cstddef>
@@ -17,7 +17,7 @@ namespace nostd_test {
     static constexpr std::size_t capacity{1024};
 
     /// Returns a reference to the single global registry instance.
-    static Registry& global() noexcept;
+    static auto global() noexcept -> Registry&;
 
     /// Appends a copy of the registry entry.
     /// If there is no more space available in the fixed-capacity array,
@@ -26,11 +26,12 @@ namespace nostd_test {
     void append(const RegistryEntry& entry) noexcept;
 
     /// Returns a span of the registry entries.
-    [[nodiscard]] std::span<const RegistryEntry> entries() const noexcept;
+    [[nodiscard]] auto entries() const noexcept
+        -> std::span<const RegistryEntry>;
 
     /// Returns whether the number of registrations exceeded the capacity of
     /// the pre-allocated array.
-    [[nodiscard]] bool too_many_entries() const noexcept;
+    [[nodiscard]] auto too_many_entries() const noexcept -> bool;
 
   private:
     std::array<RegistryEntry, capacity> entries_{};
@@ -39,4 +40,4 @@ namespace nostd_test {
   };
 }
 
-#endif  // NOSTD_TEST_PRIVATE_REGISTRY_HPP
+#endif  // NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_REGISTRY_HPP

@@ -1,5 +1,5 @@
-#ifndef NOSTD_TEST_REGISTRY_ENTRY_HPP
-#define NOSTD_TEST_REGISTRY_ENTRY_HPP
+#ifndef NOSTD_TEST_SRC_NOSTD_TEST_REGISTRY_ENTRY_HPP
+#define NOSTD_TEST_SRC_NOSTD_TEST_REGISTRY_ENTRY_HPP
 
 #include <nostd-test/source-location.hpp>
 
@@ -26,8 +26,8 @@ namespace nostd_test {
     /// Registers a this instance at the global registry.
     /// The return value can be used as a global variable to have the
     /// registration happen as a side-effect.
-    [[nodiscard]] Empty add_to_global_registry() const noexcept;
+    [[nodiscard]] auto add_to_global_registry() const noexcept -> Empty;
   };
 }
 
-#endif  // NOSTD_TEST_REGISTRY_ENTRY_HPP
+#endif  // NOSTD_TEST_SRC_NOSTD_TEST_REGISTRY_ENTRY_HPP

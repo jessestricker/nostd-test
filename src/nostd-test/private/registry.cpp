@@ -5,7 +5,7 @@ namespace {
 }
 
 namespace nostd_test {
-  Registry& Registry::global() noexcept {
+  auto Registry::global() noexcept -> Registry& {
     return global_registry;
   }
 
@@ -18,11 +18,11 @@ namespace nostd_test {
     entries_len_ += 1;
   }
 
-  std::span<const RegistryEntry> Registry::entries() const noexcept {
+  auto Registry::entries() const noexcept -> std::span<const RegistryEntry> {
     return {entries_.begin(), entries_len_};
   }
 
-  bool Registry::too_many_entries() const noexcept {
+  auto Registry::too_many_entries() const noexcept -> bool {
     return too_many_entries_;
   }
 }

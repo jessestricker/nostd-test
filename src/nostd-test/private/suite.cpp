@@ -1,10 +1,9 @@
 #include "suite.hpp"
 
 #include <algorithm>
-#include <utility>
 
 namespace nostd_test {
-  std::vector<Suite> suites_from_registry(const Registry& registry) {
+  auto suites_from_registry(const Registry& registry) -> std::vector<Suite> {
     auto suites = std::vector<Suite>{};
 
     for (const auto& entry : registry.entries()) {

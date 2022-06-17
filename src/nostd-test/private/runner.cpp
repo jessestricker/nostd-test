@@ -14,7 +14,7 @@ namespace nostd_test {
   Runner::Runner(const Registry& registry) noexcept : registry_{registry} {
   }
 
-  int Runner::operator()() const noexcept {
+  auto Runner::operator()() const -> int {
     auto& out = std::cout;
 
     if (registry_.too_many_entries()) {

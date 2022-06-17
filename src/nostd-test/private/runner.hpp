@@ -1,5 +1,5 @@
-#ifndef NOSTD_TEST_PRIVATE_RUNNER_HPP
-#define NOSTD_TEST_PRIVATE_RUNNER_HPP
+#ifndef NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_RUNNER_HPP
+#define NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_RUNNER_HPP
 
 #include <exception>
 #include <string_view>
@@ -29,11 +29,11 @@ namespace nostd_test {
     ///
     /// This method also writes a user-readable report in the Markdown format
     /// to the standard output stream.
-    int operator()() const noexcept;
+    auto operator()() const -> int;
 
   private:
     const Registry& registry_;
   };
 }
 
-#endif  // NOSTD_TEST_PRIVATE_RUNNER_HPP
+#endif  // NOSTD_TEST_SRC_NOSTD_TEST_PRIVATE_RUNNER_HPP
