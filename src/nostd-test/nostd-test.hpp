@@ -20,20 +20,21 @@ namespace nostd_test {
 
 /// Define a test case with a given name.
 ///
-/// This macro may only be used directly in the global namespace,
-/// as it injects global variable declarations in an anonymous namespace as part
-/// of the automatic test case registration mechanism.
+/// This macro may only be used directly at global namespace scope.
 #define TEST_CASE(Name)                                     \
-  void nostd_test_case_func_##Name();                       \
-  namespace {                                               \
-    const auto nostd_test_registry_entry_##Name =           \
-        nostd_test::RegistryEntry{                          \
+  namespace nostd_test::cases {                             \
+    /* Forward-declare test case function. */               \
+    void func_##Name();                                     \
+    /* Define registry entry for test case. */              \
+    const auto registry_entry_##Name =                      \
+        ::nostd_test::RegistryEntry{                        \
             .source = {.file = __FILE__, .line = __LINE__}, \
             .case_name = #Name,                             \
-            .case_func = &nostd_test_case_func_##Name}      \
+            .case_func = &func_##Name}                      \
             .add_to_global_registry();                      \
   }                                                         \
-  void nostd_test_case_func_##Name()
+  /* Define test case function. */                          \
+  void nostd_test::cases::func_##Name()
 
 #define ASSERT_THAT(Cond)                                                \
   ::nostd_test::check_assertion([&]() -> bool { return (Cond); }, #Cond, \
